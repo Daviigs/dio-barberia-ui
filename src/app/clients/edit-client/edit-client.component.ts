@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { ClientsService } from '../../services/api-client/clients/clients.service';
+import { SERVICES_TOKEN } from '../../services/service.token';
+import { IClientService } from '../../services/api-client/clients/iclients.service';
 
 @Component({
   selector: 'app-edit-client',
   imports: [],
   templateUrl: './edit-client.component.html',
-  styleUrl: './edit-client.component.scss'
+  styleUrl: './edit-client.component.scss',
+  providers: [
+    {provide: SERVICES_TOKEN.HTTP.CLIENTE, useClass: ClientsService}
+    ]
 })
 export class EditClientComponent {
+
+  constructor(@Inject (SERVICES_TOKEN.HTTP.CLIENTE)private readonly httpService: IClientService){}
 
 }
