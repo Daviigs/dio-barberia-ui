@@ -9,11 +9,11 @@ import { IClientService } from '../../services/api-client/clients/iclients.servi
   templateUrl: './edit-client.component.html',
   styleUrl: './edit-client.component.scss',
   providers: [
-    {provide: SERVICES_TOKEN.HTTP.CLIENTE, useClass: ClientsService}
+    {provide: SERVICES_TOKEN.HTTP.CLIENT, useClass: ClientsService}
     ]
 })
 export class EditClientComponent {
 
-  constructor(@Inject (SERVICES_TOKEN.HTTP.CLIENTE)private readonly httpService: IClientService){}
+  constructor(@Inject (SERVICES_TOKEN.HTTP.CLIENT)private readonly httpService: IClientService){}
 
 }
